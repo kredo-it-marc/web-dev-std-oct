@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Bootstrap Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign-Up Form</h1>
+        <form action="" method="">
+            <label for="full-name" class="form-label">Full Name</label>
+            <input type="text" class="form-control mb-3" name="full_name" id="full-name" required>
+           
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control mb-3" name="username" id="username" required>
+            
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+            <div class="form-text mb-3">
+                Password must contain at least 8 characters.
+            </div>
+            <hr>
+            <label for="device" class="form-label">Select Device</label>
+            <select name="device" id="device" class="form-select mb-3" required>
+                <option value="desktop">Desktop Computer</option>
+                <option value="laptop">Laptop Computer</option>
+                <option value="mobile">Mobile Phone</option>
+            </select>
+            <p>Gender:</p>
+            <div class="form-check">
+                <input type="radio" name="gender" id="male" value="Male" class="form-check-input" required>
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="gender" id="female" value="Female" class="form-check-input" required>
+                <label for="female" class="form-check-label">Female</label>
+            </div>
+
+            <p>Hobby/ies:</p>
+            <div class="form-check">
+                <input type="checkbox" name="hobby" id="cooking" value="cooking" class="form-check-input" required>
+                <label for="cooking" class="form-check-label">Cooking</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="hobby" id="hiking" value="hiking" class="form-check-input" required>
+                <label for="hiking" class="form-check-label">Hiking</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="hobby" id="painting" value="painting" class="form-check-input" required>
+                <label for="painting" class="form-check-label">Painting</label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
