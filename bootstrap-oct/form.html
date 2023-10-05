@@ -29,29 +29,49 @@
                 <option value="mobile">Mobile Phone</option>
             </select>
             <p>Gender:</p>
-            <div class="form-check">
+            <div class="form-check form-check-inline">
                 <input type="radio" name="gender" id="male" value="Male" class="form-check-input" required>
                 <label for="male" class="form-check-label">Male</label>
             </div>
-            <div class="form-check">
+            <div class="form-check form-check-inline">
                 <input type="radio" name="gender" id="female" value="Female" class="form-check-input" required>
                 <label for="female" class="form-check-label">Female</label>
             </div>
 
             <p>Hobby/ies:</p>
-            <div class="form-check">
+            <div class="form-check form-check-inline">
                 <input type="checkbox" name="hobby" id="cooking" value="cooking" class="form-check-input" required>
                 <label for="cooking" class="form-check-label">Cooking</label>
             </div>
-            <div class="form-check">
+            <div class="form-check form-check-inline">
                 <input type="checkbox" name="hobby" id="hiking" value="hiking" class="form-check-input" required>
                 <label for="hiking" class="form-check-label">Hiking</label>
             </div>
-            <div class="form-check">
+            <div class="form-check form-check-inline">
                 <input type="checkbox" name="hobby" id="painting" value="painting" class="form-check-input" required>
                 <label for="painting" class="form-check-label">Painting</label>
             </div>
         </form>
+
+        <h1>Form Control Sizing</h1>
+        <input type="text" class="form-control form-control-lg mb-3" name="name" id="name" placeholder="Name">
+        <input type="number" name="age" id="age" class="form-control mb-3" placeholder="Age">
+        <input type="password" class="form-control form-control-sm mb-3" name="password" id="password">
+
+        <h1>Buttons</h1>
+        <button class="btn btn-primary">Submit Button</button>
+        <a href="#" class="btn btn-success">Hyperlink</a>
+        <input type="submit" value="Input Submit" class="btn btn-danger">
+
+        <h1>Outline</h1>
+        <button class="btn btn-outline-primary">Submit Button</button>
+        <a href="#" class="btn btn-outline-success">Hyperlink</a>
+        <input type="submit" value="Input Submit" class="btn btn-outline-danger">
+
+        <h1>Sizes</h1>
+        <button class="btn btn-primary btn-sm">Submit Button</button>
+        <a href="#" class="btn btn-success">Hyperlink</a>
+        <input type="submit" value="Input Submit" class="btn btn-danger btn-lg">
     </div>
 </body>
 </html>
