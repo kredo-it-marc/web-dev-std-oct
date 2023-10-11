@@ -50,10 +50,14 @@
     /**
      * LEAP YEAR ACTIVITY
      * To determine if the year is a leap year
-     * 1. year is divisible by 4 AND NOT divisible by 100
+     * 1. year is divisible by 4 AND NOT divisible by 100 ($year%4 == 0 && $year%100 != 0)
      * OR
-     * 2. year is divisible by 4, by 100 and by 400
+     * 2. year is divisible by 4, by 100 and by 400 ($year%4 == 0 && $year%100 == 0 && $year%400 == 0)
      */
+
+     $year = 2000;
+
+     ($year%4 == 0 && $year%100 != 0) || ($year%4 == 0 && $year%100 == 0 && $year%400 == 0)
 ?>
 <hr>
 <h1>If-Elseif-Else Statement</h1>
