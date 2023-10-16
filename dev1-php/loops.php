@@ -30,5 +30,40 @@
         echo "<p>$num: is less than 5</p>";
     }
 ?>
+<hr>
+<h1>Nested Loop</h1>
+<?php
 
-
+    for($i=1; $i<=5; $i++) //display the rows
+    {
+        for($j=1; $j<5; $j++)//display the stars
+        {
+            echo "*";
+        }
+        echo "<br>"; //without the line break, the stars will be displayed in one row
+    }
+?>
+<hr>
+<h1>Activity 10</h1>
+<?php
+    for($i=1; $i<=7; $i++) //display the row
+    {
+        for($j=1; $j <= $i; $j++)//display the stars
+        {
+            echo "*";
+        }
+        echo "<br>";
+    }
+?>
+<hr>
+<h1>Activity 12</h1>
+<?php
+    for($i=1; $i<=5; $i++)//display row
+    {
+        for($j=1; $j<=$i; $j++) //display numbers
+        {
+            echo $j;
+        }
+        echo "<br>";
+    }
+?>
