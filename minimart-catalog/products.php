@@ -1,3 +1,7 @@
+<?php
+    session_start(); //connect to session
+    include "database.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
     <title>Minimart Catalog | Products</title>
 </head>
 <body class="bg-light" style="min-height:100vh;">
+    <?php include "navbar.php"; ?>
     <div class="container py-5">
         <div class="w-75 mx-auto">
             <div class="text-end mb-4">
@@ -28,6 +33,30 @@
                 </thead>
                 <tbody>
                     <!-- display the products from the database -->
+                    <?php
+                        $products = getProducts();
+
+                        if($products && $products->num_rows>0) //check if the sql statements runs successfully and if it has some results
+                        {
+                            while($row = $products->fetch_assoc())
+                            {
+                                echo "<tr>
+                                        <td>".$row["id"]."</td>
+                                        <td>".$row["title"]."</td>
+                                        <td>".$row["description"]."</td>
+                                        <td>".$row["price"]."</td>
+                                        <td>".$row["section_id"]."</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>";
+                            }
+                        }
+                        else
+                        {
+                            echo "<tr><td colspan='7' class='text-muted text-center fst-italic'>No products to display.</td></tr>";
+                        }
+
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -35,3 +64,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php
+    function getProducts()
+    {
+        $conn = dbConnect();
+        $sql = "SELECT * FROM products"; //to be updated later on
+        $result = $conn->query($sql);
+
+        return $result;
+    }
+?>

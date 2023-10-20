@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include "database.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +11,7 @@
     <title>Minimart Catalog | Add Product</title>
 </head>
 <body class="bg-light" style="min-height: 100vh">
+    <?php include "navbar.php"; ?>
     <div class="container py-5">
         <div class="card w-50 mx-auto">
             <div class="card-header">
@@ -22,8 +27,23 @@
                     <input type="number" name="price" id="price" class="form-control mb-3" required>
                     <label for="section" calss="form-label">Section</label>
                     <select name="section_id" id="section" required class="form-select mb-3">
-                        <!-- display section from the database -->
+                        <!-- display sections from the database -->
                         <option selected disabled>Select a section</option>
+                        <?php
+                            $sections = getSections();
+
+                            if($sections && $sections->num_rows>0)
+                            {
+                                while($row = $sections->fetch_assoc())
+                                {
+                                    echo "<option value='".$row["id"]."'>".$row["title"]."</option>";
+                                }
+                            }
+                            else
+                            {
+                                echo "<option disabled>No sections to display</option>";
+                            }
+                        ?>
                     </select>
                     <input type="submit" value="Submit" name="btn_submit" class="btn btn-success w-100">
                 </form>
@@ -33,3 +53,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php
+    function getSections()
+    {
+        $conn = dbConnect();
+        $sql = "SELECT * FROM sections";
+        return $conn->query($sql);
+    }
+?>
