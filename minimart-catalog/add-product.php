@@ -13,6 +13,19 @@
 <body class="bg-light" style="min-height: 100vh">
     <?php include "navbar.php"; ?>
     <div class="container py-5">
+        <?php
+            if(isset($_POST["btn_submit"]))
+            {
+                //INPUT
+                $title = $_POST["title"];
+                $description = $_POST["description"];
+                $price = $_POST["price"];
+                $section_id = $_POST["section_id"];
+
+                //PROCESS
+                createProduct($title, $description, $price, $section_id);
+            }
+        ?>
         <div class="card w-50 mx-auto">
             <div class="card-header">
                 <h1 class="display-5 card-title text-center">Add Product</h1>
@@ -59,5 +72,22 @@
         $conn = dbConnect();
         $sql = "SELECT * FROM sections";
         return $conn->query($sql);
+    }
+
+    function createProduct($title, $description, $price, $section_id)
+    {
+        $conn = dbConnect();
+        $sql = "INSERT INTO products(title, description, price, section_id) VALUES ('$title','$description','$price','$section_id')";
+        $result = $conn->query($sql); 
+
+        if($result)
+        {
+            header("Location: products.php");
+        }
+        else
+        {
+            //display an error message
+            echo "<div class='alert alert-danger w-50 mx-auto text-center mb-4'>Failed to save the product. Kindly try again. <br><small>".$conn->error."</small></div>";
+        }
     }
 ?>
